@@ -4,23 +4,24 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {
-    NbButtonModule,
-    NbCardModule, NbContextMenuModule, NbDatepickerModule, NbFormFieldModule, NbIconModule,
-    NbInputModule,
-    NbLayoutModule, NbMenuModule,
-    NbSidebarModule,
-    NbThemeModule, NbTreeGridModule
+  NbAutocompleteModule,
+  NbButtonModule,
+  NbCardModule, NbContextMenuModule, NbDatepickerModule, NbFormFieldModule, NbIconModule,
+  NbInputModule,
+  NbLayoutModule, NbMenuModule,
+  NbSidebarModule,
+  NbThemeModule, NbTooltipModule, NbTreeGridModule
 } from "@nebular/theme";
 import {NbEvaIconsModule} from "@nebular/eva-icons";
-import { LoginComponent } from './views/login/login.component';
-import { DashboardComponent } from './views/dashboard/dashboard.component';
+import {LoginComponent} from './views/login/login.component';
+import {DashboardComponent} from './views/dashboard/dashboard.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import { SettingsComponent } from './views/settings/settings.component';
-import { PackageAdministrationComponent } from './views/package-administration/package-administration.component';
-import { NoDataComponent } from './views/no-data/no-data.component';
-import { InsertPackageComponent } from './views/insert-package/insert-package.component';
-import {NgxDatatableModule} from "@swimlane/ngx-datatable";
+import {SettingsComponent} from './views/settings/settings.component';
+import {PackageAdministrationComponent} from './views/package-administration/package-administration.component';
+import {NoDataComponent} from './views/no-data/no-data.component';
+import {InsertPackageComponent} from './views/insert-package/insert-package.component';
+import {TableComponent} from './views/table/table.component';
 
 @NgModule({
   declarations: [
@@ -30,30 +31,33 @@ import {NgxDatatableModule} from "@swimlane/ngx-datatable";
     SettingsComponent,
     PackageAdministrationComponent,
     NoDataComponent,
-    InsertPackageComponent
+    InsertPackageComponent,
+    TableComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        NbThemeModule.forRoot({name: 'dark'}),
-        BrowserAnimationsModule,
-        NbButtonModule,
-        NbLayoutModule,
-        NbSidebarModule.forRoot(),
-        NbEvaIconsModule,
-        FormsModule,
-        NbCardModule,
-        NbInputModule,
-        NbIconModule,
-        NbFormFieldModule,
-        NbMenuModule.forRoot(),
-        NbContextMenuModule,
-        NbDatepickerModule.forRoot(),
-        ReactiveFormsModule,
-        NbTreeGridModule,
-        NgxDatatableModule,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NbThemeModule.forRoot({name: 'dark'}),
+    BrowserAnimationsModule,
+    NbButtonModule,
+    NbLayoutModule,
+    NbSidebarModule.forRoot(),
+    NbEvaIconsModule,
+    FormsModule,
+    NbCardModule,
+    NbInputModule,
+    NbIconModule,
+    NbFormFieldModule,
+    NbMenuModule.forRoot(),
+    NbContextMenuModule,
+    NbDatepickerModule.forRoot(),
+    ReactiveFormsModule,
+    NbTreeGridModule,
+    NbAutocompleteModule,
+    NbTooltipModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {
+}

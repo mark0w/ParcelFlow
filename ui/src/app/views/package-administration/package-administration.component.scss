@@ -1,3 +1,22 @@
 .package-table-container {
   margin-top: 20px;
 }
+
+.new-parcel-btn {
+  margin-bottom: 1rem;
+}
+
+.filters-container {
+  padding: 10px;
+  min-height: 100px;
+
+  .filters-actions {
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    .filter-action {
+      margin-right: 5px;
+    }
+  }
+}

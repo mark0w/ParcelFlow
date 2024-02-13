@@ -1,0 +1,18 @@
+<nb-card style="overflow-x: auto;">
+  <nb-card-body>
+    <table>
+      <thead>
+      <tr>
+        <th *ngFor="let column of columns" class="header-cell">{{ column.title }}</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let row of data">
+        <td *ngFor="let column of columns">
+          {{ row[column.key] }}
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </nb-card-body>
+</nb-card>
