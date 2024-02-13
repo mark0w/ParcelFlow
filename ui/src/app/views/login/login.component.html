@@ -1,0 +1,36 @@
+<div id="login-container--wrapper">
+  <nb-card [size]="'small'" id="login-container">
+    <nb-card-header>Login</nb-card-header>
+    <nb-card-body>
+      <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" novalidate class="credentials-form">
+        <nb-form-field>
+          <nb-icon nbPrefix icon="person-outline"></nb-icon>
+          <input nbInput placeholder="Username" type="text" name="username" [(ngModel)]="loginData.username"
+                 #username="ngModel" required
+          [status]="username.invalid && username.touched ? 'danger' : 'basic'">
+        </nb-form-field>
+        <div *ngIf="username.invalid && username.touched" class="error">
+          Username is required.
+        </div>
+
+        <nb-form-field>
+          <nb-icon nbPrefix icon="lock-outline"></nb-icon>
+          <input nbInput placeholder="Password" type="password" name="password" [(ngModel)]="loginData.password"
+                 #password="ngModel" required
+          [status]="password.invalid && password.touched ? 'danger' : 'basic'">
+        </nb-form-field>
+        <div *ngIf="password.invalid && password.touched" class="error">
+          Password is required.
+        </div>
+
+      </form>
+    </nb-card-body>
+    <nb-card-footer>
+      <button nbButton hero status="primary" class="full-width" type="submit" [disabled]="loginForm.invalid">Login
+      </button>
+    </nb-card-footer>
+    <div *ngIf="loginError" class="login-error">
+      Incorrect username or password.
+    </div>
+  </nb-card>
+</div>

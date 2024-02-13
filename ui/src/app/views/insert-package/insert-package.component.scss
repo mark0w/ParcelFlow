@@ -1,0 +1,28 @@
+.submit-btn-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-content {
+  flex: 1;
+}
+
+.sku-validation-container {
+  display: flex;
+  align-items: flex-end;
+
+  #sku {
+    margin-right: 50px;
+  }
+
+  .validation-text {
+    margin-left: 10px;
+    color: rgba(175,175,175,0.41)
+  }
+}

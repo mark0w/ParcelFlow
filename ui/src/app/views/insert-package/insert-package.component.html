@@ -1,0 +1,47 @@
+<nb-card>
+  <nb-card-header>
+    Insert Parcel
+  </nb-card-header>
+  <nb-card-body>
+    <form [formGroup]="parcelForm" (ngSubmit)="onSubmit()">
+      <div class="form-content">
+        <div class="sku-validation-container">
+          <nb-form-field>
+            <label for="sku">Parcel SKU</label>
+            <input nbInput id="sku" formControlName="sku" placeholder="SKU">
+          </nb-form-field>
+          <div class="validation-text">Press "ENTER" to validate...</div>
+        </div>
+
+        <nb-form-field>
+          <label>Description</label>
+          <textarea nbInput formControlName="description" placeholder="Description"></textarea>
+        </nb-form-field>
+
+        <nb-form-field>
+          <label>Street Address</label>
+          <input nbInput formControlName="streetAddress" placeholder="Street Address">
+        </nb-form-field>
+
+        <nb-form-field>
+          <label>Town</label>
+          <input nbInput formControlName="town" placeholder="Town">
+        </nb-form-field>
+
+        <nb-form-field>
+          <label>Country</label>
+          <input nbInput formControlName="country" placeholder="Country">
+        </nb-form-field>
+
+        <nb-form-field>
+          <label>Delivery Date</label>
+          <input nbInput formControlName="deliveryDate" placeholder="Delivery Date" [nbDatepicker]="datepicker">
+          <nb-datepicker #datepicker></nb-datepicker>
+        </nb-form-field>
+      </div>
+      <div class="submit-btn-container">
+        <button nbButton status="primary" type="submit">Submit</button>
+      </div>
+    </form>
+  </nb-card-body>
+</nb-card>

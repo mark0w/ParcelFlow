@@ -1,0 +1,51 @@
+.no-overflow {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.no-data-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  font-size: 48px;
+  animation: glitch 3s infinite;
+}
+
+@keyframes glitch {
+  0%, 8%, 100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  9%, 11%, 19%, 21%, 27%, 29%, 37%, 39% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  10%, 20%, 28%, 38% {
+    opacity: 0.2;
+    transform: translateX(0);
+  }
+  12%, 18%, 22%, 26%, 30%, 36% {
+    opacity: 0.5;
+    transform: translateX(0);
+  }
+  40%, 42% {
+    opacity: 0;
+    transform: translateX(-2px);
+  }
+  44%, 46% {
+    opacity: 0;
+    transform: translateX(2px);
+  }
+  48%, 50% {
+    opacity: 0.5;
+    transform: translateX(-1px) skewX(-10deg);
+  }
+  52%, 54% {
+    opacity: 0.5;
+    transform: translateX(1px) skewX(10deg);
+  }
+}
