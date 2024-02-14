@@ -1,5 +1,5 @@
 export class Parcel {
-    id: string;
+    id?: string;
     sku: string;
     description: string;
     address: string;
@@ -8,15 +8,17 @@ export class Parcel {
     deliveryDate: Date;
 
     constructor(
-        id: string,
         sku: string,
         description: string,
         address: string,
         town: string,
         country: string,
-        deliveryDate: Date
+        deliveryDate: Date,
+        id?: string,
     ) {
-        this.id = id;
+        if (id) {
+            this.id = id;
+        }
         this.sku = sku;
         this.description = description;
         this.address = address;

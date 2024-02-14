@@ -3,7 +3,7 @@
     Insert Parcel
   </nb-card-header>
   <nb-card-body>
-    <form [formGroup]="parcelForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="parcelForm">
       <div class="form-content">
         <div class="sku-validation-container">
           <nb-form-field>
@@ -20,27 +20,27 @@
 
         <nb-form-field>
           <label>Street Address</label>
-          <input nbInput formControlName="streetAddress" placeholder="Street Address">
+          <input required nbInput formControlName="address" placeholder="Street Address">
         </nb-form-field>
 
         <nb-form-field>
           <label>Town</label>
-          <input nbInput formControlName="town" placeholder="Town">
+          <input required nbInput formControlName="town" placeholder="Town">
         </nb-form-field>
 
         <nb-form-field>
           <label>Country</label>
-          <input nbInput formControlName="country" placeholder="Country">
+          <input required nbInput formControlName="country" placeholder="Country">
         </nb-form-field>
 
         <nb-form-field>
           <label>Delivery Date</label>
-          <input nbInput formControlName="deliveryDate" placeholder="Delivery Date" [nbDatepicker]="datepicker">
+          <input required nbInput formControlName="deliveryDate" placeholder="Delivery Date" [nbDatepicker]="datepicker">
           <nb-datepicker #datepicker></nb-datepicker>
         </nb-form-field>
       </div>
       <div class="submit-btn-container">
-        <button nbButton status="primary" type="submit">Submit</button>
+        <button nbButton status="primary" type="submit" (click)="submit()">Submit</button>
       </div>
     </form>
   </nb-card-body>

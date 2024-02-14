@@ -1,11 +1,11 @@
-import {Entity, Column, PrimaryGeneratedColumn, Unique} from 'typeorm';
-import {nanoid} from "nanoid";
+import {BeforeInsert, Column, Entity, PrimaryColumn, Unique} from 'typeorm';
+import {customAlphabet} from "nanoid";
 
 @Entity()
-@Unique(["sku"])
+@Unique(["sku", "id"])
 export class Parcel {
-    @PrimaryGeneratedColumn('uuid')
-    id: string = nanoid(8);
+    @PrimaryColumn()
+    id: string
 
     @Column()
     sku: string;
@@ -24,4 +24,12 @@ export class Parcel {
 
     @Column()
     deliveryDate: Date;
+
+    @BeforeInsert()
+    generateShortParcelId() {
+        const timestampPart = (Date.now() - 1609459200000).toString(36).toUpperCase();
+        const nanoid = customAlphabet('1234567890ABCDEFGHJKLMNPQRSTUVWXYZ', 4); // excluded characters where there might be confusion
+        const randomPart = nanoid();
+        this.id = `${timestampPart}${randomPart}`;
+    }
 }

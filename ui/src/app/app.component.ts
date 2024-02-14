@@ -13,7 +13,6 @@ export class AppComponent {
   menuItems: NbMenuItem[] = [
     {title: 'Overview', icon: 'activity', url: 'overview'},
     {title: 'Manage packages', icon: 'plus', url: 'administration/manage-packages'},
-    {title: 'Settings', icon: 'settings'}
   ]
 
   userMenuItems: NbMenuItem[] = [
