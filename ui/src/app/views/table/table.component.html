@@ -7,7 +7,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let row of data">
+      <tr *ngFor="let row of paginatedData">
         <td *ngFor="let column of columns">
           {{ row[column.key] }}
         </td>
@@ -15,4 +15,12 @@
       </tbody>
     </table>
   </nb-card-body>
+
+  <nb-card-footer>
+    <div class="pagination-controls">
+      <button nbButton style="margin-left: auto; margin-right: 5px;" (click)="previousPage()">Previous</button>
+      <span style="margin: 10px 10px;">Page {{ currentPage }} of {{ totalPages }}</span>
+      <button nbButton (click)="nextPage()">Next</button>
+    </div>
+  </nb-card-footer>
 </nb-card>

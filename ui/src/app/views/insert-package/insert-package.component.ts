@@ -4,12 +4,14 @@ import {ParcelService} from "../../services/parcel.service";
 import {Parcel} from "../../classes/parcel";
 import {UntilDestroy, untilDestroyed} from "@ngneat/until-destroy";
 import {NbToastrService} from "@nebular/theme";
+import {elasticInOut} from "../../shared/animations";
 
 @UntilDestroy()
 @Component({
     selector: 'app-insert-package',
     templateUrl: './insert-package.component.html',
-    styleUrl: './insert-package.component.scss'
+    styleUrl: './insert-package.component.scss',
+    animations: [elasticInOut],
 })
 export class InsertPackageComponent implements OnInit {
     parcelForm!: FormGroup;
@@ -42,10 +44,10 @@ export class InsertPackageComponent implements OnInit {
             );
 
             this.parcelService.createParcel(parcel).pipe(untilDestroyed(this)).subscribe(() => {
-                    this.toastrService.show('Success', `Parcel created`, { status: 'success'});
+                    this.toastrService.show('Success', `Parcel created`, {status: 'success'});
                 },
                 () => {
-                    this.toastrService.show('Failed', `Parcel creation failed`, { status: 'danger'});
+                    this.toastrService.show('Failed', `Parcel creation failed`, {status: 'danger'});
                 })
         }
     }

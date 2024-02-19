@@ -1,28 +1,30 @@
-<button nbButton (click)="navigateToCreation()" class="new-parcel-btn">
-  <nb-icon icon="plus"></nb-icon>
-  Insert new parcel
-</button>
+<div [@elasticInOut]>
+    <button nbButton (click)="navigateToCreation()" class="new-parcel-btn">
+        <nb-icon icon="plus"></nb-icon>
+        Insert new parcel
+    </button>
 
-<nb-card style="height: 90%">
-  <div class="filters-container">
-    <div class="filters-actions">
-      <input class="filter-action" type="text" nbInput placeholder="Description">
-      <input
-        [formControl]="inputFormControl"
-        class="filter-action"
-        nbInput
-        type="text"
-        placeholder="Country"
-        [nbAutocomplete]="autoControl"/>
+    <nb-card style="height: 90%">
+        <div class="filters-container">
+            <div class="filters-actions">
+                <input class="filter-action" type="text" nbInput placeholder="Description">
+                <input
+                        [formControl]="inputFormControl"
+                        class="filter-action"
+                        nbInput
+                        type="text"
+                        placeholder="Country"
+                        [nbAutocomplete]="autoControl"/>
 
-      <nb-autocomplete #autoControl>
-        <nb-option *ngFor="let option of filteredControlOptions$ | async" [value]="option">
-          {{ option }}
-        </nb-option>
-      </nb-autocomplete>
+                <nb-autocomplete #autoControl>
+                    <nb-option *ngFor="let option of filteredControlOptions$ | async" [value]="option">
+                        {{ option }}
+                    </nb-option>
+                </nb-autocomplete>
 
-      <button class="filter-action" nbButton>FILTER</button>
-    </div>
-  </div>
-  <app-table [columns]="columns" [data]="data"></app-table>
-</nb-card>
+                <button class="filter-action" nbButton>FILTER</button>
+            </div>
+        </div>
+        <app-table [columns]="columns" [data]="data"></app-table>
+    </nb-card>
+</div>

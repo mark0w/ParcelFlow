@@ -5,12 +5,14 @@ import {Observable, of} from "rxjs";
 import {ParcelService} from "../../services/parcel.service";
 import {UntilDestroy, untilDestroyed} from "@ngneat/until-destroy";
 import {Parcel} from "../../classes/parcel";
+import {elasticInOut} from "../../shared/animations";
 
 @UntilDestroy()
 @Component({
   selector: 'app-package-administration',
   templateUrl: './package-administration.component.html',
-  styleUrl: './package-administration.component.scss'
+  styleUrl: './package-administration.component.scss',
+  animations: [elasticInOut]
 })
 export class PackageAdministrationComponent implements OnInit {
   columns = [

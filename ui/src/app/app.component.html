@@ -5,9 +5,8 @@
   </nb-layout-header>
 
   <nb-sidebar *ngIf="isLoggedIn">
-      <nb-menu [items]="menuItems"></nb-menu>
+    <nb-menu [items]="menuItems"></nb-menu>
   </nb-sidebar>
-
 
   <nb-layout-column>
     <router-outlet></router-outlet>

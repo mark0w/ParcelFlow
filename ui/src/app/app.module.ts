@@ -23,6 +23,7 @@ import {NoDataComponent} from './views/no-data/no-data.component';
 import {InsertPackageComponent} from './views/insert-package/insert-package.component';
 import {TableComponent} from './views/table/table.component';
 import {HttpClientModule} from "@angular/common/http";
+import {BarChartModule, LineChartModule, PieChartModule} from "@swimlane/ngx-charts";
 
 @NgModule({
     declarations: [
@@ -33,32 +34,35 @@ import {HttpClientModule} from "@angular/common/http";
         PackageAdministrationComponent,
         NoDataComponent,
         InsertPackageComponent,
-        TableComponent
+        TableComponent,
     ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        NbThemeModule.forRoot({name: 'dark'}),
-        BrowserAnimationsModule,
-        NbButtonModule,
-        NbLayoutModule,
-        NbSidebarModule.forRoot(),
-        NbEvaIconsModule,
-        FormsModule,
-        NbCardModule,
-        NbInputModule,
-        NbIconModule,
-        NbFormFieldModule,
-        NbMenuModule.forRoot(),
-        NbContextMenuModule,
-        NbDatepickerModule.forRoot(),
-        ReactiveFormsModule,
-        NbTreeGridModule,
-        NbAutocompleteModule,
-        NbTooltipModule,
-        HttpClientModule,
-        NbToastrModule.forRoot(),
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NbThemeModule.forRoot({name: 'dark'}),
+    BrowserAnimationsModule,
+    NbButtonModule,
+    NbLayoutModule,
+    NbSidebarModule.forRoot(),
+    NbEvaIconsModule,
+    FormsModule,
+    NbCardModule,
+    NbInputModule,
+    NbIconModule,
+    NbFormFieldModule,
+    NbMenuModule.forRoot(),
+    NbContextMenuModule,
+    NbDatepickerModule.forRoot(),
+    ReactiveFormsModule,
+    NbTreeGridModule,
+    NbAutocompleteModule,
+    NbTooltipModule,
+    HttpClientModule,
+    NbToastrModule.forRoot(),
+    BarChartModule,
+    PieChartModule,
+    LineChartModule,
+  ],
     providers: [],
     bootstrap: [AppComponent],
 })
