@@ -25,7 +25,7 @@ export class PackageAdministrationComponent implements OnInit {
         {key: 'deliveryDate', title: 'Delivery date'}
     ];
 
-    data?: Parcel[];
+    data: Parcel[] = [];
     countries: string[] = [];
     options: string[] = [];
     // i know they can be grouped, but im tired and this is a text exercise.

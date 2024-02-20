@@ -4,7 +4,7 @@
         Insert new parcel
     </button>
 
-    <nb-card style="height: 90%">
+    <nb-card *ngIf="data.length > 0" style="height: 90%">
         <div class="filters-container">
             <div class="filters-actions">
                 <input class="filter-action" type="text" nbInput placeholder="Description" [formControl]="descFormControl">
@@ -25,6 +25,8 @@
                 <button class="filter-action" (click)="getFilteredParcels()" nbButton>FILTER</button>
             </div>
         </div>
-        <app-table *ngIf="data" [columns]="columns" [data]="data"></app-table>
+        <app-table *ngIf="data.length > 0" [columns]="columns" [data]="data!"></app-table>
     </nb-card>
 </div>
+<app-no-data *ngIf="data.length === 0"></app-no-data>
+
