@@ -28,7 +28,7 @@ export class PackageAdministrationComponent implements OnInit {
     data: Parcel[] = [];
     countries: string[] = [];
     options: string[] = [];
-    // i know they can be grouped, but im tired and this is a text exercise.
+    // i know they can be grouped, but im tired and this is a test exercise.
     countryFormControl = new FormControl();
     descFormControl = new FormControl();
     filteredControlOptions$!: Observable<string[]>;
