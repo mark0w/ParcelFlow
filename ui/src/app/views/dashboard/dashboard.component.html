@@ -1,6 +1,8 @@
 <nb-layout-column *ngIf="parcels" [@elasticInOut]>
-    <button nbButton *ngIf="!(parcels.length > 0)" (click)="createMockData()">Create mock data?</button>
-    <div class="charts-grid">
+    <button nbButton [nbSpinner]="isLoading" nbSpinnerStatus="danger" *ngIf="!(parcels.length > 0)"
+            (click)="createMockData()">Create mock data?
+    </button>
+    <div class="charts-grid" *ngIf="parcels.length > 0">
         <nb-card class="chart-container">
             <nb-card-header>
                 Parcels by country
@@ -26,7 +28,7 @@
                     [results]="parcelDeliveryData"
                     [gradient]="true"
                     [legend]="true"
-                    >
+            >
             </ngx-charts-heat-map>
         </nb-card>
     </div>

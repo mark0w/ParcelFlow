@@ -5,6 +5,7 @@ import {Parcel} from "../../classes/parcel";
 import {UntilDestroy, untilDestroyed} from "@ngneat/until-destroy";
 import {NbToastrService} from "@nebular/theme";
 import {elasticInOut} from "../../shared/animations";
+import {Router} from "@angular/router";
 
 @UntilDestroy()
 @Component({
@@ -16,7 +17,7 @@ import {elasticInOut} from "../../shared/animations";
 export class InsertPackageComponent implements OnInit {
     parcelForm!: FormGroup;
 
-    constructor(private fb: FormBuilder, private parcelService: ParcelService, private toastrService: NbToastrService) {
+    constructor(private fb: FormBuilder, private parcelService: ParcelService, private toastrService: NbToastrService, private router: Router) {
     }
 
     ngOnInit(): void {
@@ -45,9 +46,10 @@ export class InsertPackageComponent implements OnInit {
 
             this.parcelService.createParcel(parcel).pipe(untilDestroyed(this)).subscribe(() => {
                     this.toastrService.success('Success', `Parcel created`);
+                    this.router.navigateByUrl('/administration/manage-packages');
                 },
                 () => {
-                    this.toastrService.danger('Failed', `Parcel creation failed`);
+                    this.toastrService.danger('Duplicate SKU, try again :)', `Parcel creation failed`);
                 })
         }
     }

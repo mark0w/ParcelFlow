@@ -6,11 +6,20 @@ import {AppComponent} from './app.component';
 import {
     NbAutocompleteModule,
     NbButtonModule,
-    NbCardModule, NbContextMenuModule, NbDatepickerModule, NbFormFieldModule, NbIconModule,
+    NbCardModule,
+    NbContextMenuModule,
+    NbDatepickerModule,
+    NbFormFieldModule,
+    NbIconModule,
     NbInputModule,
-    NbLayoutModule, NbMenuModule,
+    NbLayoutModule,
+    NbMenuModule,
     NbSidebarModule,
-    NbThemeModule, NbToastrModule, NbTooltipModule, NbTreeGridModule
+    NbSpinnerModule,
+    NbThemeModule,
+    NbToastrModule,
+    NbTooltipModule,
+    NbTreeGridModule
 } from "@nebular/theme";
 import {NbEvaIconsModule} from "@nebular/eva-icons";
 import {LoginComponent} from './views/login/login.component';
@@ -64,6 +73,7 @@ import {AreaChartModule, BarChartModule, HeatMapModule, LineChartModule, PieChar
         LineChartModule,
         AreaChartModule,
         HeatMapModule,
+        NbSpinnerModule,
     ],
     providers: [],
     bootstrap: [AppComponent],
