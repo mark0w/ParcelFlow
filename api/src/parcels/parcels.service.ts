@@ -21,6 +21,14 @@ export class ParcelsService {
         }
     }
 
+    async createMockData(): Promise<boolean> {
+        for (let i = 0; i < 51; i++) {
+            const mockParcelDto = this.generateMockParcel(i);
+            await this.create(mockParcelDto);
+        }
+        return true
+    }
+
     async findAll(country?: string, description?: string): Promise<Parcel[]> {
         let query = this.parcelsRepository.createQueryBuilder('parcel');
 
@@ -37,7 +45,27 @@ export class ParcelsService {
             WHEN parcel.country = 'Estonia' THEN 0
             ELSE 1
         END, parcel.deliveryDate`, 'ASC');
-
         return query.getMany();
+    }
+
+    private generateMockParcel(index: number): CreateParcelDto {
+        const countries = ['Estonia', 'USA', 'UK', 'Germany', 'Poland', 'Latvia'];
+        const randomCountryIndex = Math.floor(Math.random() * countries.length);
+        const randomCountry = countries[randomCountryIndex];
+
+        // Generate a random date within the last 30 days
+        const startDate = new Date();
+        startDate.setDate(startDate.getDate() - 30);
+        const endDate = new Date();
+        const randomDate = new Date(startDate.getTime() + Math.random() * (endDate.getTime() - startDate.getTime()));
+
+        const mockParcel = new CreateParcelDto();
+        mockParcel.sku = `SKU-${index}`;
+        mockParcel.description = 'A very important parcel';
+        mockParcel.address = '123 Mock Street';
+        mockParcel.town = 'Mocktown';
+        mockParcel.country = randomCountry;
+        mockParcel.deliveryDate = randomDate;
+        return mockParcel;
     }
 }

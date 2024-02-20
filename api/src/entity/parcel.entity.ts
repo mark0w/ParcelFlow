@@ -2,7 +2,7 @@ import {BeforeInsert, Column, Entity, PrimaryColumn, Unique} from 'typeorm';
 import {customAlphabet} from "nanoid";
 
 @Entity()
-@Unique(["sku", "id"])
+@Unique(["sku"])
 export class Parcel {
     @PrimaryColumn()
     id: string

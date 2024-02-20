@@ -7,9 +7,9 @@
     <nb-card style="height: 90%">
         <div class="filters-container">
             <div class="filters-actions">
-                <input class="filter-action" type="text" nbInput placeholder="Description">
+                <input class="filter-action" type="text" nbInput placeholder="Description" [formControl]="descFormControl">
                 <input
-                        [formControl]="inputFormControl"
+                        [formControl]="countryFormControl"
                         class="filter-action"
                         nbInput
                         type="text"
@@ -22,9 +22,9 @@
                     </nb-option>
                 </nb-autocomplete>
 
-                <button class="filter-action" nbButton>FILTER</button>
+                <button class="filter-action" (click)="getFilteredParcels()" nbButton>FILTER</button>
             </div>
         </div>
-        <app-table [columns]="columns" [data]="data"></app-table>
+        <app-table *ngIf="data" [columns]="columns" [data]="data"></app-table>
     </nb-card>
 </div>

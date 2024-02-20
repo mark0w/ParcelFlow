@@ -1,40 +1,35 @@
 <nb-layout-column *ngIf="parcels" [@elasticInOut]>
-  <button nbButton>Create mock data?</button>
-  <div class="charts-grid">
-    <nb-card class="chart-container">
-      <nb-card-header>
-        Parcels by country
-      </nb-card-header>
-      <ngx-charts-pie-chart
-        [view]="chartSize"
-        [scheme]="'vivid'"
-        [results]="parcelChartData"
-        [gradient]="gradient"
-        [doughnut]="false"
-        [legend]="true"
-      >
-      </ngx-charts-pie-chart>
-    </nb-card>
+    <button nbButton *ngIf="!(parcels.length > 0)" (click)="createMockData()">Create mock data?</button>
+    <div class="charts-grid">
+        <nb-card class="chart-container">
+            <nb-card-header>
+                Parcels by country
+            </nb-card-header>
+            <ngx-charts-pie-chart
+                    [view]="chartSize"
+                    [scheme]="'vivid'"
+                    [results]="parcelChartData"
+                    [gradient]="gradient"
+                    [doughnut]="false"
+                    [legend]="true"
+            >
+            </ngx-charts-pie-chart>
+        </nb-card>
 
-    <nb-card class="chart-container">
-      <nb-card-header>
-        Parcels by delivery date
-      </nb-card-header>
-      <ngx-charts-line-chart
-        [view]="chartSize"
-        [scheme]="'vivid'"
-        [results]="parcelDeliveryData"
-        [gradient]="gradient"
-        [xAxis]="true"
-        [yAxis]="true"
-        [legend]="true"
-        [showXAxisLabel]="true"
-        [showYAxisLabel]="true"
-        [xAxisLabel]="'Date'"
-        [yAxisLabel]="'Number of Parcels'">
-      </ngx-charts-line-chart>
-    </nb-card>
-  </div>
-  <app-no-data *ngIf="parcels.length === 0"></app-no-data>
+        <nb-card class="chart-container">
+            <nb-card-header>
+                Parcels by delivery date
+            </nb-card-header>
+            <ngx-charts-heat-map
+                    [view]="chartSize"
+                    [scheme]="'vivid'"
+                    [results]="parcelDeliveryData"
+                    [gradient]="true"
+                    [legend]="true"
+                    >
+            </ngx-charts-heat-map>
+        </nb-card>
+    </div>
+    <app-no-data *ngIf="parcels.length === 0"></app-no-data>
 </nb-layout-column>
 

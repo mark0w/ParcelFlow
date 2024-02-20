@@ -12,6 +12,11 @@ export class ParcelsController {
         return this.parcelsService.create(parcel);
     }
 
+    @Post('mock-data')
+    async createMockData(): Promise<boolean> {
+        return this.parcelsService.createMockData();
+    }
+
     @Get()
     async findAll(
         @Query('country') country?: string,

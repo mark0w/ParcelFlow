@@ -44,10 +44,10 @@ export class InsertPackageComponent implements OnInit {
             );
 
             this.parcelService.createParcel(parcel).pipe(untilDestroyed(this)).subscribe(() => {
-                    this.toastrService.show('Success', `Parcel created`, {status: 'success'});
+                    this.toastrService.success('Success', `Parcel created`);
                 },
                 () => {
-                    this.toastrService.show('Failed', `Parcel creation failed`, {status: 'danger'});
+                    this.toastrService.danger('Failed', `Parcel creation failed`);
                 })
         }
     }
